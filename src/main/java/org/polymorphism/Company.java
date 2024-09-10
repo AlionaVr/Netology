@@ -17,9 +17,11 @@ public class Company {
         this.taxSystem = taxSystem;
     }
 
-    public void shiftMoney(int amount) {
-        debit += Math.max(amount, 0);
-        credit += (amount < 0) ? Math.abs(amount) : 0;
+    public void shiftMoney(int[] amount) {
+        for (int i : amount) {
+            debit += Math.max(i, 0);
+            credit += (i < 0) ? Math.abs(i) : 0;
+        }
     }
 
     public void payTaxes() {
@@ -30,22 +32,15 @@ public class Company {
         credit = 0;
     }
 
-    int applyDeals(Deal[] deals, TaxSystem ts1, TaxSystem ts2) {
+    int applyDeals(Deal[] deals) {
         for (Deal deal : deals) {
             debit += deal.debitChange;
             credit += deal.creditChange;
         }
         int difference = debit - credit;
-        setTaxSystem(chooseBestTaxSystem(ts1, ts2));
         payTaxes();
         return difference;
     }
 
-    public TaxSystem chooseBestTaxSystem(TaxSystem ts1, TaxSystem ts2) {
-        int tax1 = ts1.calcTaxFor(debit, credit);
-        int tax2 = ts2.calcTaxFor(debit, credit);
-        System.out.println("Налог по SystemEarning: " + tax1);
-        System.out.println("Налог по SystemEarningsMinusSpendings: " + tax2);
-        return tax1 < tax2 ? ts1 : ts2;
-    }
+
 }
