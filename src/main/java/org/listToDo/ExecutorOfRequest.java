@@ -19,20 +19,27 @@ public class ExecutorOfRequest {
     }
 
     public void showList() {
-        System.out.println("Ваш список дел: ");
-
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(i + 1 + ". " + list.get(i));
+        if (list.size() == 0) {
+            System.out.println("Список пуст");
+        } else {
+            System.out.println("Ваш список дел: ");
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println(i + 1 + ". " + list.get(i));
+            }
+            System.out.println();
         }
-        System.out.println();
     }
 
     public void removeBusinessByNumber() {
         System.out.println("Введите номер дела, которое хотите удалить");
         int numberOfBusiness = Integer.parseInt(scanner.nextLine());
 
-        list.remove(numberOfBusiness - 1);
-        System.out.println("Удалено!");
+        try {
+            list.remove(numberOfBusiness - 1);
+            System.out.println("Удалено!");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Такого дела нет в списке");
+        }
         showList();
     }
 
