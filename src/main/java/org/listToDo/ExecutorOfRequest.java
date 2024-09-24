@@ -19,7 +19,7 @@ public class ExecutorOfRequest {
     }
 
     public void showList() {
-        if (list.size() == 0) {
+        if (list.isEmpty()) {
             System.out.println("Список пуст");
         } else {
             System.out.println("Ваш список дел: ");
@@ -33,14 +33,15 @@ public class ExecutorOfRequest {
     public void removeBusinessByNumber() {
         System.out.println("Введите номер дела, которое хотите удалить");
         int numberOfBusiness = Integer.parseInt(scanner.nextLine());
-
-        try {
-            list.remove(numberOfBusiness - 1);
-            System.out.println("Удалено!");
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Такого дела нет в списке");
+        if (numberOfBusiness <= 0 || numberOfBusiness > list.size()) {
+            System.out.println("Такого дела нет в списке!");
+            return;
         }
+
+        list.remove(numberOfBusiness - 1);
+        System.out.println("Удалено!");
         showList();
+
     }
 
     public void removeBusinessByName() {
@@ -89,5 +90,4 @@ public class ExecutorOfRequest {
             showList();
         }
     }
-
 }
