@@ -7,6 +7,7 @@ public class Main {
         // PatternInText.findPattern();
         //Weather.calculatorOfAverageWeather();
         //CrossOrZero.play();
+        // BinarySearch.start();
 
 
     }
