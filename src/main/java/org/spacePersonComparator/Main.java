@@ -1,5 +1,6 @@
 package org.spacePersonComparator;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.TreeSet;
 
@@ -9,6 +10,9 @@ Main {
 
     public static void main(String[] args) {
         TreeSet<Person> candidates = new TreeSet<>(new SpacePersonComparator());
+        //Comparator.comparing(Person::getExperience, Comparator.reverseOrder())
+        //        .thenComparing(Main::countS, Comparator.reverseOrder())
+        //        .thenComparing(person -> person.getName().length()));
         candidates.add(new Person("Sonya Popova", 35, 15));
         candidates.add(new Person("Dazdraperma Sponzhova", 33, 15));
         candidates.add(new Person("Salavat Netologshvili", 23, 13));
