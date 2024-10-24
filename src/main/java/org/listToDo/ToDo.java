@@ -33,7 +33,6 @@ public class ToDo {
                     assistant.addToList();
                     break;
                 case 2:
-                    assistant.showList();
                     break;
                 case 3:
                     assistant.removeBusinessByNumber();
@@ -47,8 +46,8 @@ public class ToDo {
                 default:
                     System.out.println("Введено неверное число");
                     break;
-
             }
+            assistant.showList();
         }
     }
 }

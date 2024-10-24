@@ -15,7 +15,6 @@ public class ExecutorOfRequest {
 
         list.add(business);
         System.out.println("Добавлено!");
-        showList();
     }
 
     public void showList() {
@@ -40,7 +39,6 @@ public class ExecutorOfRequest {
 
         list.remove(numberOfBusiness - 1);
         System.out.println("Удалено!");
-        showList();
 
     }
 
@@ -84,10 +82,8 @@ public class ExecutorOfRequest {
     public void isRemoved(boolean removed) {
         if (removed) {
             System.out.println("Удалено!");
-            showList();
         } else {
             System.out.println("Такого дела нет в списке!");
-            showList();
         }
     }
 }
