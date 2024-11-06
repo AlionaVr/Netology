@@ -12,6 +12,7 @@ public class Main {
         // BinarySearch.start();
         // Recursion.start();
         // MergeSorting.start();
-        System.out.println(new Solution().solution(20));
+        // System.out.println(new Solution().solution(20));
+        System.out.println(Sum.recursiveSum(5));
     }
 }
