@@ -2,14 +2,27 @@ package org.baseJava.romanNumeralsEncoder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class RomanNumeralsEncoder {
 
+    public final Map<Integer, String> romanNumbers;
+
+    public RomanNumeralsEncoder() {
+        romanNumbers = new HashMap<>();
+        romanNumbers.put(1, "I");
+        romanNumbers.put(5, "V");
+        romanNumbers.put(10, "X");
+        romanNumbers.put(50, "L");
+        romanNumbers.put(100, "C");
+        romanNumbers.put(500, "D");
+        romanNumbers.put(1000, "M");
+    }
 
     public String solution(int n) {
 
-        Map<Integer, String> romanNumbers = new HashMap<>();
+        Map<Integer, String> romanNumbers = new LinkedHashMap<>();
         romanNumbers.put(1, "I");
         romanNumbers.put(5, "V");
         romanNumbers.put(10, "X");
