@@ -1,4 +1,4 @@
-package org.baseJava.sortingOdd;
+package org.baseJava.shop.sortingOdd;
 
 public class Main {
 
