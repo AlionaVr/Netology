@@ -5,27 +5,34 @@ package org.baseJava.patternInText;
 //        Если при проверке хотя бы один из символов не совпадёт - позиция не подходит и переходим к следующей. В противном случае нужно увеличить счётчик повторений count.
 
 public class PatternInText {
-    public static final String TEXT = "aaababaabaaaabaabaabaabaaababaabaaababaabaaaabaabaabaabbabaabaaababaababaabaabaabaaabbaab";
-    public static final String PATTERN = "aab";
+    private final String TEXT;
+    private final String PATTERN;
 
-    public static void findPattern() {
+
+    public PatternInText(String text, String pattern) {
+        this.TEXT = text;
+        this.PATTERN = pattern;
+    }
+
+
+    public int findPattern() {
         int count = 0;
+        if (!PATTERN.isEmpty()) {
+            for (int i = 0; i <= TEXT.length() - PATTERN.length(); i++) {
+                boolean match = true;
 
-        for (int i = 0; i <= TEXT.length() - PATTERN.length(); i++) {
-            boolean match = true;
-
-            for (int j = 0; j < PATTERN.length(); j++) {
-                if (TEXT.charAt(i + j) != PATTERN.charAt(j)) {
-                    match = false;
-                    break;
+                for (int j = 0; j < PATTERN.length(); j++) {
+                    if (TEXT.charAt(i + j) != PATTERN.charAt(j)) {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match) {
+                    count++;
                 }
             }
-            if (match) {
-                count++;
-            }
         }
-
-
         System.out.println("Строка " + PATTERN + " встретилась в тексте " + count + " раз");
+        return count;
     }
 }

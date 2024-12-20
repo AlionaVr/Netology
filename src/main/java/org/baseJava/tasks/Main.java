@@ -1,12 +1,17 @@
 package org.baseJava.tasks;
 
+import org.baseJava.patternInText.PatternInText;
+
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         // Library.askTheLibrarian();
         // Tax.calculatorOfTax();
-        // PatternInText.findPattern();
+
+        PatternInText finder = new PatternInText("aaababaabaaaabaabaabaabaaababaabaaababaabaaaabaabaabaabbabaabaaababaababaabaabaabaaabbaab", "aab");
+        finder.findPattern();
+
         //Weather.calculatorOfAverageWeather();
         //CrossOrZero.play();
         // BinarySearch.start();
