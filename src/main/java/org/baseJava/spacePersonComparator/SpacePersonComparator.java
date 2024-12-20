@@ -2,6 +2,7 @@ package org.baseJava.spacePersonComparator;
 
 import java.util.Comparator;
 
+
 class SpacePersonComparator implements Comparator<Person> {
 
 
