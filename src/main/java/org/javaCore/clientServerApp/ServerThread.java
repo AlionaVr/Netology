@@ -18,14 +18,24 @@ public class ServerThread extends Thread {
                      BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 ) {
                     System.out.println("New connection accepted. Port:" + clientSocket.getPort());
+                    out.println("Write your name");
+                    String name = in.readLine();
 
-                    final String name = in.readLine();
-
-                    out.println(String.format("Hi %s, your port is %d", name, clientSocket.getPort()));
+                    out.println(String.format("Hi %s, your port is %d.\n Are you child? (yes/no)", name, clientSocket.getPort()));
+                    String isChild = in.readLine();
+                    if (isChild.equalsIgnoreCase("yes")) {
+                        out.println(String.format("Welcome to the kids area, %s! Let's play!", name));
+                    } else if (isChild.equalsIgnoreCase("no")) {
+                        out.println(String.format("Welcome to the adult zone,%s! " +
+                                "Have a good rest, or a good working day!", name));
+                    } else {
+                        out.println("Invalid response. Please answer with 'yes' or 'no'.");
+                    }
                 }
             }
         } catch (IOException e) {
-            System.out.println("Server Error: " + e.getMessage());
+            System.err.println("Server Error: " + e.getMessage());
         }
     }
 }
+
